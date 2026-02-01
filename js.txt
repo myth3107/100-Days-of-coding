@@ -1,0 +1,23 @@
+the thing we do in DOM manipulation
+
+1. HTML se element select krna
+2. Text badalna\
+3. HTML badalna
+4. CSS badalna
+5. Atrribute badalna 
+6. Event listners 
+
+// Dynamic DOM manipulation
+ 
+ 1. create a element 
+ 2. select the Atrribute and change it 
+ 3. Append or prepend that element
+ (append me body ke last me attach hoga)
+ (prepend me body ke front me attach hoga)
+
+ ex- {
+    let h1 = document.createElement("h1");
+h1.textContent = "myth is back"
+document.querySelector("body").append(h1);
+console.log(h1.textContent);
+}
