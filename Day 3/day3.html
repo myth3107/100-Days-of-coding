@@ -4,17 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo App</title>
+    <style>
+      
+    body {
+    font-family: sans-serif; /* Sets the default font for the entire page */
+    margin: 0;                /* Removes default browser margin */
+    padding: 0;               /* Removes default browser padding */
+    background-color: #3b3b3b; /* Sets a light gray background color */
+    color: #333;              /* Sets the default text color */
+    line-height: 1.6;         /* Sets the default line spacing */
+       }
+     .main{
+        padding: 2rem;
+        border-radius: 10px;
+        margin-right: 2rem;
+     }
+     .todo-bar{
+        border-radius: 10px;
+     }
+     .todo-bar .h1{
+        font-size: 400%;
+        padding: 10px;
+        margin-bottom: -20px;
+     }
+
+  
+
+     .form{
+        padding: 5px;
+        margin-top: 0;
+
+     }
+
+    .card{
+            margin-top: 40px;
+            border-radius: 10px;
+            display: inline-block;
+            padding: 5px;
+            border: 1px solid black;
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            background: white;
+            justify-content: space-around;
+        }
+    </style>
 </head>
 <body>
-    <div>
+    <div class="main">
         <div class="todo-bar" style="text-align: center; background: rgb(99, 129, 247);" >
-            <h1>Todo</h1> 
-            <div style="display: flex; justify-content: center;">
-               <input id="taskInput" type="text" placeholder="add your task">
-        
-               <button class="button">Add</button>
+            <h1 class="h1">Todo</h1> 
+            <form action="" class="form">
+                <input type="text" placeholder="add your task" id="addTask">
+                <input type="submit" id="submit">
+            </form>
             </div>
-            
+            <div class="card" style="display: flex; ">
+                <input type="checkbox" class="checkbox" style="margin-right: 10px;">
+                <h3>mythless</h3>
+                <button class="button">Delete</button>
+            </div>
         </div>
        
     </div>

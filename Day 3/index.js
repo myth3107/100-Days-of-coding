@@ -1,17 +1,14 @@
-let input = document.querySelector("input");
-let button  = document.querySelector("button");
+let form = document.querySelector("form");
+let input = document.querySelectorAll("input")
+
+form.addEventListener("submit", (dets)=>{
+dets.preventDefault();
+console.log(input[0].value);
 
 
-input.addEventListener("input",(task)=>{
-    if(task.data !== null){
-console.log(task.data);
-    }   
+
 })
 
-function addTodo(){
-    <div>  
-        <input type="checkbox"></input>
-        console.log(task.data);
-        
-    </div>
-}
+
+
+
