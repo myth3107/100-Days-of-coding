@@ -1,6 +1,7 @@
 let form = document.querySelector("form");
 let input = document.querySelectorAll("input")
 let main = document.querySelector(".main")
+let todo = [];
 
 form.addEventListener("submit", (dets)=>{
 dets.preventDefault();
@@ -12,6 +13,8 @@ card.classList.add("card");
 let checkbox = document.createElement("input")
  checkbox.type = "checkbox";
  checkbox.classList.add("checkbox");
+ 
+
 
  let h2 = document.createElement("h2");
  h2.classList.add("h2");
@@ -20,6 +23,14 @@ let checkbox = document.createElement("input")
  let del = document.createElement("button")
  del.classList.add("button");
  del.innerText = "Delete";
+ del.addEventListener("click", ()=>{
+   card.remove();
+   
+ })
+
+ checkbox.addEventListener("change", ()=>{
+   h2.classList.toggle("completed", checkbox.checked);
+});
 
  card.appendChild(checkbox);
  card.appendChild(h2);
@@ -29,6 +40,21 @@ let checkbox = document.createElement("input")
 
 
 })
+
+function renderTodo(){
+    localStorage.setItem("todo", JSON.stringify(todo));
+    todo = saved ? JSON.parse(saved) : [];
+    renderTodo();
+
+    function saveTodos() {
+  localStorage.setItem("todos", JSON.stringify(todos));
+}
+}
+
+
+
+
+
 
 
 
