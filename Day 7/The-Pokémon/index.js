@@ -1,46 +1,87 @@
-let form = document.querySelector("form");
-let input = document.querySelector("input[type='number']");
-let main = document.querySelector(".main");
-let cardsContainer = document.querySelector(".cardsContainer")
+const form = document.querySelector("form");
+const countInput = document.querySelector("input[type='number']");
+const typeSelect = document.getElementById("typeSelect");
+const cardsContainer = document.querySelector(".cardsContainer");
+const main = document.querySelector(".main");
 
-form.addEventListener("submit", (e) => {
+// Fetch Pokémon list by type
+async function fetchByType(type) {
+  const res = await fetch(`https://pokeapi.co/api/v2/type/${type}`);
+  if (!res.ok) throw new Error("Type fetch failed");
+  const data = await res.json();
+  return data.pokemon; // array of { pokemon: { name, url }, slot }
+}
+
+// Pick N random Pokémon from list
+function pickNRandom(list, n) {
+  const shuffled = [...list].sort(() => 0.5 - Math.random());
+  return shuffled.slice(0, n);
+}
+
+// Fetch details for each Pokémon
+async function fetchDetails(pokemonRefs) {
+  const promises = pokemonRefs.map(ref =>
+    fetch(ref.pokemon.url).then(r => r.json())
+  );
+  return Promise.all(promises);
+}
+
+// Create one Pokémon card
+function createPokemonCard(poke) {
+  const card = document.createElement("div");
+  card.className = "card";
+
+  const img = document.createElement("img");
+  img.className = "pic";
+  img.src = poke.sprites.front_default || "";
+  img.alt = poke.name;
+
+  const data = document.createElement("div");
+  data.className = "data";
+
+  const para = document.createElement("p");
+  para.className = "para";
+  para.innerText = poke.name.toUpperCase();
+
+  data.appendChild(para);
+  card.appendChild(img);
+  card.appendChild(data);
+
+  return card;
+}
+
+// Handle form submit
+form.addEventListener("submit", async (e) => {
   e.preventDefault();
 
-  const count = Number(input.value);
-  if (!count || count <= 0) return;
+  const count = Number(countInput.value);
+  const type = typeSelect.value;
 
-  // Clear previous cards (remove old generated ones)
-  document.querySelectorAll(".card").forEach(card => card.remove());
+  if (!count || count <= 0) {
+    alert("Please enter a valid number of cards.");
+    return;
+  }
 
-  for (let i = 1; i <= count; i++) {
-    // Create elements
-    let card = document.createElement("div");
-    card.classList.add("card");
+  if (!type) {
+    alert("Please select a Pokémon type.");
+    return;
+  }
 
-    async function pokemonData(params) {
-      
-    }
+  cardsContainer.innerHTML = "Loading...";
 
-    let img = document.createElement("img");
-    img.classList.add("pic");
-    img.src =
-      "https://images.unsplash.com/photo-1770562525481-e7a3eae66492?w=500&auto=format&fit=crop&q=60";
-    img.alt = "pokemon";
+  try {
+    const list = await fetchByType(type);           // step 1: list by type
+    const selected = pickNRandom(list, count);     // step 2: pick N
+    const details = await fetchDetails(selected);  // step 3: fetch details
 
-    let data = document.createElement("div");
-    data.classList.add("data");
+    cardsContainer.innerHTML = "";                  // clear previous cards
+    details.forEach(poke => {
+      cardsContainer.appendChild(createPokemonCard(poke));
+      main.appendChild(cardsContainer);
+    });
 
-    let para = document.createElement("p");
-    para.classList.add("para");
-    para.innerText = `Pokemon ${i}`;
-
-    // Build structure
-    data.appendChild(para);
-    card.appendChild(img);
-    card.appendChild(data);
-    cardsContainer.appendChild(card);
-
-    // Append to main container
-    main.appendChild(cardsContainer);
+  } catch (err) {
+    console.error(err);
+    cardsContainer.innerHTML = "Failed to load Pokémon. Try again.";
   }
 });
