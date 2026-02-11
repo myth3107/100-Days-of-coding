@@ -1,6 +1,7 @@
 let form = document.querySelector("form");
 let input = document.querySelector("input[type='number']");
 let main = document.querySelector(".main");
+let cardsContainer = document.querySelector(".cardsContainer")
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -15,6 +16,10 @@ form.addEventListener("submit", (e) => {
     // Create elements
     let card = document.createElement("div");
     card.classList.add("card");
+
+    async function pokemonData(params) {
+      
+    }
 
     let img = document.createElement("img");
     img.classList.add("pic");
@@ -33,8 +38,9 @@ form.addEventListener("submit", (e) => {
     data.appendChild(para);
     card.appendChild(img);
     card.appendChild(data);
+    cardsContainer.appendChild(card);
 
     // Append to main container
-    main.appendChild(card);
+    main.appendChild(cardsContainer);
   }
 });
