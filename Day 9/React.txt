@@ -1,0 +1,2 @@
+1.Why we need React?=> for dynamic websites, these lib make it easier to do DOM manipulation.
+2. 

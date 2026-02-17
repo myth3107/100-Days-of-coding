@@ -13,6 +13,7 @@ async function fetchByType(type) {
 }
 
 // Pick N random Pokémon from list
+// Pick N random Pokémon from list
 function pickNRandom(list, n) {
   const shuffled = [...list].sort(() => 0.5 - Math.random());
   return shuffled.slice(0, n);
