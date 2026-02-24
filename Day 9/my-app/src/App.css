@@ -5,18 +5,31 @@
   text-align: center;
 }
 
-#box{
-  height: 200px;
-  width: 600px;
-  border-radius: 10px;
-  border-style: solid;
+.box{
+  width: 300px;          /* fixed width */
+  max-width: 90vw;      /* responsive on small screens */
+  height: 380px;        /* fixed height */
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
   display: flex;
-  justify-content: space-around;
+  flex-flow: initial;
+  gap: 10px;
+  text-decoration-color: #0f172a;
 }
 
-.button{
-  
-  border-radius: 10px;
-  text-align: center;
+.text{
+   padding-left: 10px;
+   display: flex;
+}
 
+.container{
+   margin:10;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 100vh;
+   border-radius: 10px;
+   flex-direction: column;
+   gap: calc(20px);
 }

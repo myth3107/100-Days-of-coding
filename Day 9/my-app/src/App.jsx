@@ -1,47 +1,52 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import './App.css';
+import React from 'react';
 
-function App() {
-  const[count, setCount] = useState(0);
 
-  function increasing(){
-    setCount(count+1);
-   }
+export default function PostComponent() {
+  return(
+    <div className='container' >
+      <Profile/>
+      <Profile/>
+      <Profile/>
 
-   function Decreasing(){
-    setCount(count-1);
-   }
+    </div>
 
-   function SetZero(){
-    setCount(0);
-   }
-   return (
-    <>
+  )
+}
+const boxStyle={
+  height:"100px", 
+  widht:20, 
+  backgroundColor:"#3c40c6",
+  
+  
+}
+
+const imgStyle={
+  height:100,
+  width:100,
+  borderRadius:"50%"
+  
+}
+
+
+
+function Profile(){
+  return(
     <div>
-      <h1>Myth is back</h1>
-    </div>
-
-    <div id='box' >
-        <div>
-          <button className='button' onClick={increasing}> <b> Increasing Counter</b> </button>
-          <h1>{count}</h1>
-          </div>
-
-          <div>
-          <button className='button' onClick={Decreasing}> <b> Decreasing Counter </b> </button>
+      <div className='box' style={boxStyle}>
+        <img src="https://images.unsplash.com/photo-1761839258044-e59f324b5a7f?q=80&w=871&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" style={imgStyle}/>
+        <span className='text'>
           
-          </div>
-
-          <div>
-          <button className='button' onClick={SetZero}> <b> Set 0 </b> </button>
+          <p><b>Mythless kumar aditya</b><br />
+          50k followers <br />
+          22 years old</p>
+          
         
-          </div>
+        </span>
+        
+        
+      </div>
     </div>
-     
-    </>
   )
 }
 
-export default App
