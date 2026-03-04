@@ -35,15 +35,25 @@ function Card({ fact }) {
         alignItems: 'center'
       }}
     >
+<div style={{ width: 360,
+          height: 360,
+           background:'oklch(64.5% 0.246 16.439)', 
+           borderRadius:'50%', 
+           display:"flex", 
+           justifyContent:'center', 
+           alignItems:'center',
+           
+           }}>
+
       <div
         style={{
           background: 'oklch(64.5% 0.246 16.439)',
-          margin: 10,
+          
           width: 350,
           height: 350,
           borderRadius: "50%",
           overflow: 'hidden',
-          boxShadow: '0px 4px 10px rgba(0,0,0,0.3)'
+          // boxShadow: '0px 4px 10px rgba(0,0,0,0.3)'
         }}
       >
         <img
@@ -52,6 +62,7 @@ function Card({ fact }) {
           style={{ width: "100%", height: "100%", objectFit: "cover" }}
         />
       </div>
+</div>
 
       <h1 style={{ fontSize: 70, fontFamily:'ui-sans-serif' }}>Mythless</h1>
       <p style={{ fontSize: 35 }}>Frontend Engineer</p>
@@ -66,6 +77,7 @@ function Card({ fact }) {
         
         
       </div>
+      
     </div>
   );
 } 
