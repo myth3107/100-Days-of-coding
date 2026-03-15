@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import AdopterData from './Components/Table';
+import AdopterData from './Table';
 import { validation } from "../utils/validation"
 
 

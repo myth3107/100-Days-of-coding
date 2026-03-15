@@ -1,21 +1,115 @@
-#root {
-  max-width: '100vh';
-  /* margin: 0 auto;
-  padding: 2rem; */
-  /* text-align: center; */
-}
+* {
 
-
-  .start-bg {
-  margin: 0;
-  padding: 0;
-  background: url("https://images.unsplash.com/photo-1503431128871-cd250803fa41?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") no-repeat center fixed;
-  background-size: cover;
-  min-width: 100%;
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  align-items: center;
-}
-
+    box-sizing: border-box;
+    margin: 0;
+    color: #e3f3dc;
+    padding:4px
+    
+  
+  }
+  
+  body {
+  
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+  
+  }
+  
+  .form {
+  
+    background-color: #c59771bd;
+    max-width: 550px;
+    margin: 20px auto;
+    padding: 30px;
+    text-align: left;
+    border-radius: 3px;
+    box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.4);
+    font-family: inherit;
+    font-weight: 800;
+  
+  }
+  
+  div {
+  
+    margin-bottom: 5px;
+  
+  }
+  
+  label {
+  
+    display: block;
+    margin: 10px 0;
+  
+  }
+  
+  input[type="radio"],
+  input[type="checkbox"] {
+  
+    display: inline-block;
+    margin: 0 10px 10px 5px;
+    width: auto;
+    font-family: inherit;
+  
+  }
+  
+  input[type="text"],
+  textarea,
+  select,
+  input[type="date"],
+  input[type="file"],
+  input[type="email"],
+  input[type="password"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-family: inherit;
+    border-radius: 2px;
+  }
+  
+  button {
+  
+    padding: 10px;
+    background-color: #335624;
+    width: 100%;
+    color: #fff;
+    border: none;
+    border-radius: 2px;
+    font-size: 16px;
+    font-family: inherit;
+    margin: 20px 0 10px 0;
+  
+  }
+  
+  table {
+  
+    border: 1px solid #335624;
+    margin: 20px auto;
+    width: 65%;
+    background-color: #fff;
+    border-collapse: collapse;
+    box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.4);
+    ;
+  
+  }
+  
+  tr,
+  td,
+  th {
+  
+    border: 1px solid #335624;
+    padding: 10px;
+  
+  }
+  
+  tr {
+    background-color: #c59771bd;
+  }
+  
+  small {
+  
+    color: red;
+    font-style: italic;
+    float: right;
+    margin-top: 4px;
+  
+  }
